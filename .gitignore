@@ -1,0 +1,2 @@
+# 용량이 큰 문제로 node_modules 제외하고 올린다
+/node_modules
