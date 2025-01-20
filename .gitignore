@@ -1,2 +1,9 @@
 # 용량이 큰 문제로 node_modules 제외하고 올린다
-/node_modules
+# .gitignore 참고
+.next
+node_modules
+/out
+.DS_Store
+*.pem
+
+/coverage

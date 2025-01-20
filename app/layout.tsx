@@ -1,11 +1,13 @@
+import "../styles/global.css";
 import { Metadata } from "next"
+import Navigation from "../components/navigation";
 
 export const metadata: Metadata = {
   title: {
-    template : "%s | Next Movies",
-    default : "Loading...",
+    template: "%s | Next Movies",
+    default: "Loading...",
   },
-  description : "The Best Movies"
+  description: "The Best Movies"
 }
 
 export default function RootLayout({
@@ -15,7 +17,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <div><Navigation /></div>
+        {children}
+      </body>
     </html>
   )
 }
