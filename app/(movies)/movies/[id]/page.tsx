@@ -32,12 +32,12 @@ import MovieVideos from "../../../../components/movie-videos";
 //     const response = await fetch(`${API_URL}/${id}/videos`);
 //     return response.json();
 // }
-interface IParams {
-    params : {id : string};
-}
+type IParams = Promise<{ id: string }>;
 
-export async function generateMetadata({ params }:IParams) {
-    const {id}  = await params;
+
+export async function generateMetadata(props: { params: IParams }) {
+    const params = await props.params;
+    const id = params.id;
     console.log("generateMetadata");
     console.log("id : "+id);
     const movieInfo = await getMovieInfo(id);
@@ -47,8 +47,9 @@ export async function generateMetadata({ params }:IParams) {
     }
 }
 
-export default async function MoviesDetail({ params }:IParams) {
-    const { id } = await params;
+export default async function MoviesDetail(props: { params: IParams }) {
+    const params = await props.params;
+    const id = params.id;
     console.log('params:', { id });
     
     // Suspense는 각 묶음마다 로딩하는 동안 대신 보여줄 UI 설정함
