@@ -37,7 +37,7 @@ interface IParams {
 }
 
 export async function generateMetadata({ params }:IParams) {
-    const {id}  = params;
+    const {id}  = await params;
     console.log("generateMetadata");
     console.log("id : "+id);
     const movieInfo = await getMovieInfo(id);
